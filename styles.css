@@ -4,3 +4,12 @@ body {
     background-color: black;
     color: white;
 }
+
+p {
+    color: darkgoldenrod;
+}
+
+h1 {
+    color: lightgreen;
+    text-align: center;
+}

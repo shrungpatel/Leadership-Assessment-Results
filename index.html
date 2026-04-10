@@ -10,18 +10,38 @@
             function showPopup(event) {
                 event.stopPropagation();
                 const descriptions = {
-                    'Duty Ethics:': 'Actions are right based on duties and obligations, regardless of outcomes.',
-                    'Utilitarian Ethics:': 'Actions are right if they maximize overall happiness and minimize suffering.',
-                    'Virtue Ethics:': 'Focus on developing good character traits and virtues.',
-                    'Caring Ethics:': 'Emphasizes relationships, compassion, and caring for others.',
-                    'Egoism Ethics:': 'Actions are right if they promote one\'s own self-interest.',
-                    'Justice Ethics:': 'Focus on fairness, equality, and treating people impartially.'
+                    /* Overall Descriptions */
+                    'Ethical Leadership': 'This questionnaire presented 10 scenarios where you had to make a decision based on your ethical values. The score for each ethical framework is calculated by the frequency at which you chose that option.',
+                    'Task and Relationship': 'This questionnaire is designed to measure your task-oriented and relationship-oriented leadership behavior by asking you to rate on a scale of 1 to 5 (never to always) how often you engage in specific behaviors related to task and relationship leadership with 10 questions for each style. Both scores being close to each other suggests a balanced leadership approach, while a significant difference may indicate a preference for one style over the other. The maximum score for each style is 50.',
+                    'Conceptualizing Leadership': 'This questionnaire asked particpants to rate on a scale of 1 to 5 (strong disagree to strongly agree) their opinions about the nature of leadership and the relationship between a leader and followers with 4 questions for each of the 6 types of emphasis. The maximum score for each style is 20.',
+                    'Leadership Style': `This questionnaire asked you to rate on a scale of 1 to 5 (strong disagree to strongly agree) your opinions about what a leader should be doing with 6 questions for each of the 3 types. The maximum score for each style is 15. The score ranges for each style are as follows:
+                    [6-10]: very low,
+                    [11-15]: low,
+                    [16-20]: moderate,
+                    [21-25]: high,
+                    [26-30]: very high.`,
+                    'Path Goal Styles': 'This questionnaire asked you to rate on a scale of 1 to 5 (never to always) how often you engage in specific behaviors related to the 4 types of leadership goals (3 questions for each type). The maximum score for each style is 15.',
+
+                    /* Ethical Leadership Questionnaire */
+                    'Duty Ethics:': 'You follow a set of moral rules and do what is expected of you when facing an ethical dilemma. You focus on fulfilling your moral obligations and doing your duty.',
+                    'Utilitarian Ethics:': 'You try to do what is best for the most people overall when facing an ethical dilemma. You focus on what will result in happiness for the largest number of individuals.',
+                    'Virtue Ethics:': 'You pull from who you are (your character) when facing an ethical dilemma. You act out of integrity, and you are faithful to your own principles.',
+                    'Caring Ethics:': 'You give attention to your relationships when facing an ethical dilemma. You may give special consideration to those with whom you share a personal bond or commitment.',
+                    'Egoism Ethics:': 'You do what is best for accomplishing your personal goals and objectives when facing an ethical dilemma. You are not afraid to assert your own interests when resolving problems.',
+                    'Justice Ethics:': 'You focus on treating others fairly when facing an ethical dilemma. You try to make sure the benefits and burdens of decisions are shared equitably between everyone concerned.',
+
+                    /* Path Goal Styles Questionnaire */
+                    'Directive Leadership:': 'You prefer to give clear instructions and expectations to your followers.',
+                    'Supportive Leadership:': 'You prefer to be friendly and approachable with your followers. You like to show concern for their well-being and create a positive work environment.',
+                    'Participative Leadership:': 'You prefer to involve your followers in decision-making. You like to encourage collaboration and value their input and ideas.',
+                    'Achievement-Oriented Leadership:': 'You prefer to set challenging goals and expect high performance from your followers. You like to motivate them to achieve their best and reach their full potential.',
                 };
                 const text = event.target.textContent;
                 const popup = document.createElement('div');
                 //popup.className = 'popup';
                 popup.textContent = descriptions[text] || 'No description available.';
                 popup.style.color = 'gold';
+                console.log(popup.textContent);
                 document.querySelector(`.${text.replaceAll(':', '').replaceAll(' ', '')}`).after(popup);
                 
                 const closePopup = () => {
@@ -31,8 +51,9 @@
                 document.addEventListener('click', closePopup);
             }
         </script>
-        <h1>Leadership Assessment Results</h1>
-        <h2>Ethical Leadership</h2>
+        <h1 justifyContent="center" align="center">My Leadership Assessment Results</h1>
+        <p>Click on each item to learn more.</p>
+        <h2 class="EthicalLeadership" onclick="showPopup(event)">Ethical Leadership</h2>
         <ul class="ethical-leadership">
             <li class="DutyEthics"><strong onclick="showPopup(event)">Duty Ethics:</strong> 4</li>
             <li class="UtilitarianEthics"><strong onclick="showPopup(event)">Utilitarian Ethics:</strong> 0</li>
@@ -41,12 +62,12 @@
             <li class="EgoismEthics"><strong onclick="showPopup(event)">Egoism Ethics:</strong> 0</li>
             <li class="JusticeEthics"><strong onclick="showPopup(event)">Justice Ethics:</strong> 4</li>
         </ul>
-        <h2>Task and Relationship</h2>
+        <h2 class="TaskandRelationship" onclick="showPopup(event)">Task and Relationship</h2>
             <ul>
-                <li><strong>Task score:</strong> 48</li>
                 <li><strong>Relationship score:</strong> 50</li>
+                <li><strong>Task score:</strong> 48</li>
             </ul>
-        <h2>Conceptualizing Leadership</h2>
+        <h2 class="ConceptualizingLeadership" onclick="showPopup(event)">Conceptualizing Leadership</h2>
             <ul>
                 <li><strong>Relationship emphasis:</strong> 20</li>
                 <li><strong>Process emphasis:</strong> 18</li>
@@ -55,19 +76,18 @@
                 <li><strong>Behavior emphasis:</strong> 16</li>
                 <li><strong>Trait emphasis:</strong> 12</li>
             </ul>
-        <h2>Leadership Style Questionnaire</h2>
+        <h2 class="LeadershipStyle" onclick="showPopup(event)">Leadership Style</h2>
             <ul>
-                <li><strong>Authoritarian Leadership:</strong> 13</li>
                 <li><strong>Democratic Leadership:</strong> 25</li>
                 <li><strong>Laissez-Faire Leadership:</strong> 19</li>
+                <li><strong>Authoritarian Leadership:</strong> 13</li>
             </ul>
-        <h2>Abusive Leadership</h2>
-        <h2>Path Goal Styles</h2>
+        <h2 class="PathGoalStyles" onclick="showPopup(event)">Path Goal Styles</h2>
             <ul>
-                <li><strong>Directive Leadership:</strong> 13</li>
-                <li><strong>Supportive Leadership:</strong> 15</li>
-                <li><strong>Participative Leadership:</strong> 15</li>
-                <li><strong>Achievement-Oriented Leadership:</strong> 14</li>
+                <li class="SupportiveLeadership"><strong onclick="showPopup(event)">Supportive Leadership:</strong> 15</li>
+                <li class="ParticipativeLeadership"><strong onclick="showPopup(event)">Participative Leadership:</strong> 15</li>
+                <li class="Achievement-OrientedLeadership"><strong onclick="showPopup(event)">Achievement-Oriented Leadership:</strong> 14</li>
+                <li class="DirectiveLeadership"><strong onclick="showPopup(event)">Directive Leadership:</strong> 13</li>
             </ul>
     </body>
 </html>
