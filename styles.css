@@ -6,10 +6,20 @@ body {
 }
 
 p {
-    color: darkgoldenrod;
+    color: white;
 }
 
 h1 {
     color: lightgreen;
     text-align: center;
+}
+
+strong[onClick] {
+    color: lightblue;
+    text-decoration: underline;
+}
+
+h2 {
+    color: lightcoral;
+    text-decoration: underline;
 }
